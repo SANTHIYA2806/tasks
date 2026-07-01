@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List </title>
+    <style>
+        body{
+            background-color: antiquewhite;
+            min-height: 100vh;
+            margin-top: 100px;
+            display: flex;
+            justify-content: center;
+        }
+        div{
+            justify-content: center;
+            align-items: center;
+        }
+        input{
+            padding: 5px;
+            border: 2px solid wheat;
+            border-radius: 5px;
+        }
+        button{
+            padding: 5px;
+            background-color: goldenrod;
+            color:black;
+            border-radius: 5px;
+            border: 2px solid black;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <input id="input" type="text">
+        <button id="btn" onclick="add()">Add</button>
+        <ul id="list"></ul>
+    </div>
+    <script>
+
+        function add(){
+            var item = document.getElementById("input").value;
+            var btn = document.getElementById("btn");
+            var list = document.getElementById("list");
+            
+            list.innerHTML+=`<li>${item}
+            <button onclick="remove(this)">Delete</button></li>`;
+
+            document.getElementById("input").value="";
+        }
+
+        function remove(button){
+            button.parentElement.remove();
+        }
+    </script>
+</body>
+</html>
